@@ -51,3 +51,13 @@ Across the project, we observed patterns where analyst tone and evasiveness sign
 
 ## Notes
 This project was completed as part of an academic programme and does not represent employment with the sponsoring organisation.
+
+## Repository contents
+- `EP_report.pdf`  
+  Full group report describing the end-to-end approach, methodology, and results.
+
+- `EP_presentation_slides.pdf`  
+  Summary slides used for the final project presentation.
+
+- `EP_rag_notebook.ipynb`  
+  Focused notebook showing the Retrieval Augmented Generation (RAG) pipeline and chatbot prototype that I built as part of the project.
