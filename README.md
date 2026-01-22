@@ -1,23 +1,40 @@
-# Bank of England Employer Project: NLP-driven Insight Extraction from Quarterly Earnings Data
+# Bank of England Employer Project: NLP-Driven Insight Extraction from Quarterly Earnings Data
 
 Group project completed as part of the University of Cambridge Institute for Continuing Education Career Accelerator (Data Science with AI and Machine Learning).
 
-The goal of this project was to explore whether narrative signals from quarterly earnings call transcripts can complement prudential indicators and help surface early qualitative warning signals.
+The goal of this project was to explore whether narrative signals from quarterly earnings call transcripts can complement prudential indicators and support earlier identification of emerging stress.
+
+## Problem
+Manual review of earnings calls is time-intensive and inconsistent, especially when comparing multiple banks over multiple quarters.
 
 ## Project overview
-We worked with earnings call transcripts from multiple global banks across several quarters and combined NLP-based features with prudential metrics to support structured analysis and supervisor-style Q&A.
+We worked with quarterly earnings call transcripts from major banks and built a pipeline combining NLP features with prudential indicators.
 
 Key components included:
-- **Transcript parsing and speaker attribution** (executives vs analysts)
-- **Sentiment analysis** using FinBERT
-- **Aspect-Based Sentiment Analysis (ABSA)** to capture topic-level sentiment
-- A **“spin” metric** to detect positive language paired with uncertainty/hedging
-- **Temporal analysis** linking language features to prudential ratios (e.g., CET1, LCR, NSFR, LDR)
-- **XGBoost modelling** to test predictive relationships
-- **Retrieval Augmented Generation (RAG)** prototype for transcript search and Q&A
+- Transcript extraction and parsing (including speaker attribution)
+- FinBERT sentiment analysis (executives vs analysts)
+- Aspect-Based Sentiment Analysis (ABSA) for topic-level sentiment
+- Disagreement and evasiveness signals from Q&A interactions
+- A “spin” metric to capture positive language combined with uncertainty/hedging
+- Time-series alignment with prudential ratios (CET1, LCR, NSFR, LDR)
+- XGBoost modelling to test short-horizon predictive relationships
+- Retrieval Augmented Generation (RAG) prototype for transcript Q&A
+
+## Data processing
+We built a preprocessing pipeline to extract and structure transcripts from multiple banks, including:
+- scraping PDFs from investor relations sources
+- regex-based parsing and recursive text extraction
+- handling inconsistent transcript formatting (especially speaker separation)
+- adding an `exchange_id` to track new topics during Q&A sessions and enable analyst vs executive interaction analysis
+
+## Cross-bank risk focus (examples)
+Using topic-level signals, we compared recurring areas of analyst scrutiny across banks, for example:
+- Funding and liquidity risk (Credit Suisse, UBS)
+- Interest rate and market risk (HSBC, Deutsche Bank)
+- Credit risk and asset quality (JP Morgan)
 
 ## My contribution (RAG)
-My main responsibility in the group project was developing the **RAG pipeline and chatbot prototype**.
+My main responsibility in the group project was developing the **Retrieval Augmented Generation (RAG)** component, including a prototype chatbot to query transcripts across banks and quarters.
 
 Implementation highlights:
 - Chunked transcripts (800 tokens, 100 overlap)
@@ -27,14 +44,10 @@ Implementation highlights:
 - Used **Phi-4-mini-instruct** as the generator model
 - Added metadata (bank, quarter, source) to support targeted retrieval and comparisons
 
-## Tech stack
-- **Python**
-- **Pandas / NumPy**
-- **Hugging Face Transformers**
-- **SentenceTransformers**
-- **Chroma**
-- **LangChain**
-- **XGBoost**
+RAG was designed to support query-driven exploration of transcripts, including comparisons across banks and time periods.
+
+## Results (high level)
+Across the project, we observed patterns where analyst tone and evasiveness signals often appeared ahead of changes in prudential conditions.
 
 ## Notes
-This repository contains project outputs from an academic employer project. All work was completed as part of the programme and does not represent employment with the sponsoring organisation.
+This project was completed as part of an academic programme and does not represent employment with the sponsoring organisation.
