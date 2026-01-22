@@ -27,13 +27,13 @@ We built a preprocessing pipeline to extract and structure transcripts from mult
 - handling inconsistent transcript formatting (especially speaker separation)
 - adding an `exchange_id` to track new topics during Q&A sessions and enable analyst vs executive interaction analysis
 
-## Cross-bank risk focus (examples)
+## Cross-bank risk focus
 Using topic-level signals, we compared recurring areas of analyst scrutiny across banks, for example:
 - Funding and liquidity risk (Credit Suisse, UBS)
 - Interest rate and market risk (HSBC, Deutsche Bank)
 - Credit risk and asset quality (JP Morgan)
 
-## My contribution (RAG)
+## RAG
 My main responsibility in the group project was developing the **Retrieval Augmented Generation (RAG)** component, including a prototype chatbot to query transcripts across banks and quarters.
 
 Implementation highlights:
